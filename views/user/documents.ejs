@@ -1,0 +1,40 @@
+<!-- Default home page -->
+<link type="text/css" href='http://sailsjs.org/styles/fonts.css' rel='stylesheet'/>
+<script type="text/javascript">
+  setTimeout(function sunrise() {
+    document.getElementsByClassName('header')[0].style.backgroundColor = '#FFFFFF';
+  }, 0);
+</script>
+
+<div class="default-page">
+  <div class="header">
+
+    <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' + view.ext %></code></h3>
+  </div>
+  <div class="main container clearfix">
+
+    <div class="content">
+          <table class="table">
+              <% for(key in data["items"]) { if (data["items"].hasOwnProperty(key)) { %>
+              <tr>
+                <td><%= key %>:</td>
+
+               <td class="boxy">
+                 <!-- <a href="<%= data["items"][key]["selfLink"] %>"><%= data["items"][key]["title"] %></a> -->
+                 <a href="<%= data["items"][key]["alternateLink"] %>"><%= data["items"][key]["title"] %></a>
+
+                </td>
+               <td class="boxy">
+                 <img src="<%= data["items"][key]["iconLink"] %>" alt="Smiley face" height="16" width="16">
+               </td>
+
+
+              </tr>
+              <% }} %>
+          </table>
+
+
+    </div>
+
+  </div>
+</div>
