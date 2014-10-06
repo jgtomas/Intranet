@@ -5,15 +5,33 @@ var passport = require('passport')
     , TwitterStrategy = require('passport-twitter').Strategy;
 
 
-var verifyHandler = function(token, tokenSecret, profile, done) {
+var verifyHandler = function(token, tokenSecret, params, profile, done) {
   process.nextTick(function() {
-    if(profile._json.hd === "aptus.es"
-    )
-{
+    if(profile._json.hd === "aptus.es"){
+      console.log(params.expires_in);
+      console.log(params);
       // find or create user in database, etc
       User.findOne({uid: profile.id}, function(err, user) {
       if (user) {
-        return done(null, user);
+        if (params.access_token == user.token) {
+            console.log("Coinciden los token");
+            return done(null, user);
+        }
+        else{
+            console.log("hay que actualizar los tokens");
+            user.token = params.access_token
+            user.save(function(error) {
+                if(error) {
+                    // do something with the error.
+                    console.log("error al actualizar");
+                } else {
+                    // value saved!
+                    console.log("Parece que se a actualizado");
+                    return done(null, user);
+                }
+            });
+        }
+
       } else {
 
         var data = {

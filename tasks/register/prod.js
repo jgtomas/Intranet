@@ -1,8 +1,9 @@
 module.exports = function (grunt) {
 	grunt.registerTask('prod', [
+		'ngAnnotate',
 		'compileAssets',
 		'concat',
-		'uglify',
+		'uglify',		
 		'cssmin',
 		'sails-linker:prodJs',
 		'sails-linker:prodStyles',

@@ -27,13 +27,17 @@ module.exports = {
       if (err) {
         res.send(400);
       } else {
-        res.send(users);
+        if (req.wantsJSON) {
+          res.json(users);
+        }
+        else{
+          res.send(users);
+        }
       }
     });
   },
 
   documents: function (req, res) {
-      
     var id=req.param('id',null);
     console.log('usuario ID:', id);
 

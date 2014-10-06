@@ -1,0 +1,21 @@
+{
+  "name": "AptusIntranet",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jgtomas/Intranet",
+  "description": "intranet de aptus",
+  "authors": [
+    "Julen"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "bootstrap-material-design": "*"
+  }
+}
