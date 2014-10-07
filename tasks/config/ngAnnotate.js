@@ -6,18 +6,18 @@ module.exports = function(grunt) {
 				singleQuotes: true,
 		},
 
-		// app2: {
-		// 		files: [
-		// 				{
-		// 						expand: true,
-		//
-		// 						src: ['./assets/js/angular/**/*.js'],
-		// 						// src: ['./assets/js/dependencies/*'],
-		// 						ext: '.annotated.js', // Dest filepaths will have this extension.
-		// 						extDot: 'last',       // Extensions in filenames begin after the last dot
-		// 				},
-		// 		],
-		// }
+		app2: {
+				files: [
+						{
+								expand: true,
+
+								// src: ['./assets/js/angular/**/*.js'],
+								src: ['./assets/js/angular/app.js'],
+								// ext: '.annotated.js', // Dest filepaths will have this extension.
+								extDot: 'last',       // Extensions in filenames begin after the last dot
+						},
+				],
+		}
 
 
 	});

@@ -55,6 +55,11 @@ module.exports.routes = {
     controller : 'user',
     action     : 'documents'
 
+  },
+  '/profile': {
+    controller : 'home',
+    action     : 'profile'
+
   }
 
   /***************************************************************************

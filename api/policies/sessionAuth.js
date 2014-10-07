@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-
+  console.log("no autorizado!!");
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
   return res.redirect('/login');

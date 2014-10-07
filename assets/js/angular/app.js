@@ -1,5 +1,5 @@
 // create the module and name it scotchApp
-var App = angular.module('aptusApp', ['ngRoute']);
+var App = angular.module('aptusApp', ['ngRoute','ngResource']);
 
 // configure our routes
   App.config(['$routeProvider', function($routeProvider) {
@@ -8,7 +8,7 @@ var App = angular.module('aptusApp', ['ngRoute']);
       // route for the home page
       .when('/', {
         templateUrl : './templates/home.html',
-        controller  : 'mainController'
+        controller  : 'homeController'
       })
 
       // route for the about page
@@ -29,9 +29,42 @@ var App = angular.module('aptusApp', ['ngRoute']);
 
   }]);
 
+  // App.factory('Home', ['$resource', function($resource) {
+  //   return $resource('profile/');
+  // }]);
+  //
+  //
+  //
+
+  App.factory("Home", ['$resource', function($resource) {
+    return $resource("/profile", {}, {'query': {method: 'GET', isArray: false}});
+  }]);
+
+
+  App.controller('homeController', ['$scope','Home',function($scope, Home) {
+    // Home.query(function (data) {
+    //   $scope.message = data;
+    // });
+    Home.query(function(data) {
+
+       $scope.message = data;
+      console.log(data);
+    });
+    // $scope.message = 'JUUUULEN';
+  }]);
+
 
   // create the controller and inject Angular's $scope
   App.controller('userController', ['$scope', function($scope) {
     // create a message to display in our view
     $scope.message = 'Everyone come and see how good I look! -- USERS';
   }]);
+
+
+
+App.controller('HeaderController',['$scope','$location', function($scope, $location)
+{
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+    };
+}]);
