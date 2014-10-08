@@ -25,7 +25,7 @@ module.exports = {
     //   user: req.user
     // });
     console.log("prfile action");
-    
+    console.log(req.user);
     res.json({
       user: req.user
     });

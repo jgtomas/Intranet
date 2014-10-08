@@ -10,6 +10,7 @@ var verifyHandler = function(token, tokenSecret, params, profile, done) {
     if(profile._json.hd === "aptus.es"){
       console.log(params.expires_in);
       console.log(params);
+      console.log(profile);
       // find or create user in database, etc
       User.findOne({uid: profile.id}, function(err, user) {
       if (user) {
@@ -39,6 +40,7 @@ var verifyHandler = function(token, tokenSecret, params, profile, done) {
             uid: profile.id,
             name: profile.displayName,
             token:token,
+            picture:profile._json.picture,
             isAdmin: false
         };
 

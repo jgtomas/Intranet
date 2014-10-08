@@ -24,10 +24,12 @@ module.exports = {
   ,
   findAll: function (req, res) {
     User.find().exec(function (err, users) {
+      console.log('entra a buscar todos los user');
       if (err) {
         res.send(400);
       } else {
         if (req.wantsJSON) {
+          console.log(users);
           res.json(users);
         }
         else{

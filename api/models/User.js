@@ -17,6 +17,7 @@ module.exports = {
     firstname: 'STRING',
     lastname: 'STRING',
     token: 'STRING',
+    picture:'STRING',
     isAdmin:'boolean'
   }
 };

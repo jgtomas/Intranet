@@ -1,6 +1,32 @@
 <!-- home.html -->
 	<div class="jumbotron text-center">
-		<h1>User Page</h1>
+		<!-- <h1>User Page</h1>
 
-		<p>{{ message }}</p>
+ -->
+
+		<p>
+					Buscar: <input type="text" ng-model="search">
+		</p>
 	</div>
+
+<div class="bs-component">
+	<div class="list-group" ng-repeat="user in users | filter:search">
+			<div class="list-group-item">
+					<div class="row-picture">
+							<img class="circle" src="{{ user.picture }}" alt="icon">
+					</div>
+					<div class="row-content">
+							<div class="action-secondary">
+								<i class="icon-material-info"></i>
+							</div>
+							<h4 class="list-group-item-heading">{{ user.name }}</h4>
+							<p class="list-group-item-text">{{ user.email }}<br/>
+								id:{{ user.id }}<br/>
+								Es admin:{{ user.isAdmin }}
+							</p>
+					</div>
+			</div>
+			<div class="list-group-separator"></div>
+
+	</div>
+</div>

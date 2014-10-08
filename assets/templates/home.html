@@ -1,18 +1,54 @@
-<div id="page-wrapper" style="min-height: 409px;">
-    <p>You've successfully logged in.</p>
-    <a class="btn" href="/logout">Logout</a>
+<div class="">
 
-    <h2>User Model</h2>
-    <!-- <table class="table">
-      <% for(key in user.toJSON() ) { if (user.hasOwnProperty(key)) { %>
-      <tr>
-        <td><%= key %>:</td>
-        <td class="boxy"><%= user[key] %></td>
-      </tr>
-      <% }} %>
-    </table> -->
 
-    <p>{{ message }}</p>
+    <!-- <div class="list-group-item" ng-repeat="user in users">
+        <div class="row-picture">
+            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+        </div>
+        <div class="row-content">
+
+
+            <p class="list-group-item-text">{{ user.isAdmin }}</p>
+            <p class="list-group-item-text"></p>
+            <p class="list-group-item-text">{{ user.firstname }}</p>
+            <p class="list-group-item-text">{{ user.lastname }}</p>
+        </div> -->
+    <!-- </div> -->
+
+
+    <div class="bs-component">
+      <div class="list-group" ng-repeat="user in users">
+          <div class="list-group-item">
+              <div class="row-picture">
+                  <img class="circle" src="{{ user.picture }}" alt="icon">
+              </div>
+              <div class="row-content">
+                  <h4 class="list-group-item-heading">{{ user.name }}</h4>
+                  <p class="list-group-item-text">{{ user.email }}<br/>
+                     id:{{ user.id }}<br/>
+                     Es admin:{{ user.isAdmin }}
+                  </p>
+              </div>
+          </div>
+          <div class="list-group-separator"></div>
+
+      </div>
+    </div>
+
+    <!-- <ul>
+      <li class="animate-repeat" >
+
+
+
+
+
+
+
+      </li>
+      <li class="animate-repeat" ng-if="results.length == 0">
+        <strong>No results found...</strong>
+      </li>
+    </ul> -->
 
     <!-- /.row -->
 
