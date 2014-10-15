@@ -29,10 +29,53 @@
                      Es admin:{{ user.isAdmin }}
                   </p>
               </div>
+              <!-- <div class="row-content" ng-repeat="vaca in user.vacaciones">
+                  <h4 class="list-group-item-heading">{{ vaca.puntos }}</h4>
+                  <p class="list-group-item-text">{{ vaca.anyo }}<br/>
+
+                  </p>
+              </div> -->
           </div>
           <div class="list-group-separator"></div>
 
+          <h2 id="type" class="icon-material-teal">Vacaciones</h2>
+
+          <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Año</th>
+                        <th>Puntos Totales</th>
+                        <th>Puntos Consumidos</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="vaca in user.vacaciones">
+                        <td>{{ vaca.anyo }}</td>
+                        <td >
+                          {{ vaca.puntos }}
+                          <a href="#" ng-if="TienePermisos(user)"  class="btn-flat icon-material-add-circle" style="text-decoration: none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">
+                            Editar
+                          </a>
+                        </td>
+                        <td>{{ vaca.puntos }}</td>
+                        <td class="nav">
+                          <a href="#" class="btn-flat icon-material-add-circle" style="text-decoration: none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">
+                            Pedir
+                          </a>
+                        </td>
+                    </tr>
+                </tbody>
+          </table>
+
       </div>
+
+
+
+
+
+
+
     </div>
 
     <!-- <ul>

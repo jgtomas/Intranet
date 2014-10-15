@@ -8,9 +8,7 @@ var passport = require('passport')
 var verifyHandler = function(token, tokenSecret, params, profile, done) {
   process.nextTick(function() {
     if(profile._json.hd === "aptus.es"){
-      console.log(params.expires_in);
-      console.log(params);
-      console.log(profile);
+    
       // find or create user in database, etc
       User.findOne({uid: profile.id}, function(err, user) {
       if (user) {
@@ -45,7 +43,6 @@ var verifyHandler = function(token, tokenSecret, params, profile, done) {
         };
 
 
-
         if (profile.emails && profile.emails[0] && profile.emails[0].value) {
               data.email = profile.emails[0].value;
               if (profile.emails[0].value === "julen.godoy@aptus.es") {
@@ -59,12 +56,26 @@ var verifyHandler = function(token, tokenSecret, params, profile, done) {
             data.lastname = profile.name.familyName;
         }
 
-
-
         User.create(data, function(err, user) {
             user.token = token;
-            return done(err, user);
+            Vacaciones.create({id:user.id},function(err, vacac) {
+                console.log(vacac);
+                user.vacaciones = vacac
+                user.save(function(error) {
+                    if(error) {
+                        // do something with the error.
+                        console.log("error al actualizar");
+                    } else {
+                        return done(null, user);
+                    }
+                });
+
+            });
+
+            // return done(err, user);
         });
+
+
       }
       });
    }else{

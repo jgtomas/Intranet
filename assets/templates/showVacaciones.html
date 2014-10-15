@@ -1,0 +1,42 @@
+
+
+<link href="http://angular-clndr.10kb.nl/angular-clndr.css" rel="stylesheet">
+
+
+
+
+<!-- <body ng-app="clndrApp"> -->
+  <div class="container" ng-controller="DemoCtrl"  id="cal1">
+
+
+  <div class="col-lg-10 col-lg-offset-1 col-md-12">
+  <tien-clndr class="clndr" tien-clndr-object="clndr" tien-clndr-events="events">
+    <div class="clndr-controls">
+      <div class="clndr-previous-button" ng-click="clndr.back()">
+      </div>
+      <div class="month">
+        {{month}}
+      </div>
+      <div class="clndr-next-button" ng-click="clndr.forward()">
+      </div>
+    </div>
+    <div class="clndr-grid">
+      <div class="days-of-the-week">
+        <div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
+          {{day}}
+        </div>
+      </div>
+      <div class="days">
+        <div class="{{day.classes}}" ng-style="set_color(day)" ng-repeat="day in days" ng-click="prueba(day,$event,$index);">
+          <div class="event-indicator" ng-show="day.events" ng-click="showEvents(day.events)">{{day.events.length}}</div>
+          {{day.day}}
+        </div>
+      </div>
+    </div>
+  </tien-clndr>
+</div>
+</div>
+
+
+
+<!-- </body> -->

@@ -15,6 +15,8 @@ module.exports = {
       user: req.user
     });
 
+
+
     // res.json({
     //   user: req.user
     // });
@@ -25,10 +27,14 @@ module.exports = {
     //   user: req.user
     // });
     console.log("prfile action");
-    console.log(req.user);
-    res.json({
-      user: req.user
+    console.log(req);
+
+    User.find(req.user.id).populate('vacaciones').exec(function(err,r){
+      console.log(r);
+      res.json(r);
     });
+
+
   }
 
 

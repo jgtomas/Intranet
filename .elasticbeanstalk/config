@@ -1,0 +1,5 @@
+[global]
+ApplicationName=Default-Environment-an8vpt3b5g.elasticbeanstalk.com
+EnvironmentName=Single instance
+Region=eu-west-1a
+AwsCredentialFile=/Users/babel/.elasticbeanstalk/aws_credential_file

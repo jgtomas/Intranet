@@ -18,6 +18,10 @@ module.exports = {
     lastname: 'STRING',
     token: 'STRING',
     picture:'STRING',
+    vacaciones:{
+            collection: 'Vacaciones',
+            via: 'id'
+    },
     isAdmin:'boolean'
   }
 };
