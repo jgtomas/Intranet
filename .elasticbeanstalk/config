@@ -2,6 +2,8 @@
 ApplicationName=Default-Environment-an8vpt3b5g.elasticbeanstalk.com
 EnvironmentName=Single instance
 DevToolsEndpoint=git.elasticbeanstalk.eu-west-1a.amazonaws.com
+EnvironmentTier=WebServer::Standard::1.0
 Region=eu-west-1a
+InstanceProfileName=aws-elasticbeanstalk-ec2-role
 AwsCredentialFile=/Users/babel/.elasticbeanstalk/aws_credential_file
 ServiceEndpoint=https://elasticbeanstalk.eu-west-1a.amazonaws.com
