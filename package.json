@@ -31,6 +31,7 @@
     "sails-mongo": "^0.10.0",
     "connect-mongo": "^0.4.1",
     "bower": ">=1.3.12",
+    "sails-mssql": "git://github.com/jaredfromsubway/sails-mssql.git",
     "google-drive": "^0.0.6"
   },
   "scripts": {
